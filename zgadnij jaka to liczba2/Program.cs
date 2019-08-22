@@ -12,7 +12,7 @@ namespace zgadnij_jaka_to_liczba2
         {
             Console.Title = ("Zgadnij Liczbe");
 
-            while(true)
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("MENU");
@@ -32,9 +32,9 @@ namespace zgadnij_jaka_to_liczba2
                     default: break;
 
                 }
-                
+
             }
-         
+
         }
         static void JeszczeNieMa()
         {
@@ -43,36 +43,72 @@ namespace zgadnij_jaka_to_liczba2
         }
         static void Main(string[] args)
         {
-            int min = 0;
-            int max = 100;
-            Random liczba1 = new Random();
-            int a = liczba1.Next(1, max);
-            int liczba;
+            void Menu()
+            {
+                Console.Title = ("Zgadnij Liczbe");
 
-            Console.WriteLine($"Wylosowałam liczbę od {min} do {max}. Zgadnij jaka to liczba");
-            do {
-            liczba = int.Parse(Console.ReadLine());
-            
-
-
-                if (liczba < a)
+                while (true)
                 {
-                    Console.WriteLine("Za mało. Sprobuj jeszcze raz");
+                    Console.Clear();
+                    Console.WriteLine("MENU");
+                    Console.WriteLine("1-Poziomy");
+                    Console.WriteLine("2-Wyjscie");
+
+                    ConsoleKeyInfo klawisz = Console.ReadKey();
+                    switch (klawisz.Key)
+                    {
+                        case ConsoleKey.D1:
+                            Console.Clear(); JeszczeNieMa(); break;
+
+                        case ConsoleKey.Escape:
+                        case ConsoleKey.D3:
+                            Environment.Exit(0); break;
+
+                        default: break;
+
+                    }
+
                 }
-                if (liczba > a)
+                void JeszczeNieMa()
                 {
-                    Console.WriteLine("Za dużo. Sprobuj jeszcze raz");
+                    Console.WriteLine(" Narazie tyle");
+                    Console.ReadKey();
+
                 }
-            } while (liczba != a);
 
-            Console.WriteLine("Brawo! zgadłeś liczbę");
 
-            Console.Read();    
+                int min = 0;
+                int max = 100;
+                Random liczba1 = new Random();
+                int a = liczba1.Next(1, max);
+                int liczba;
+
+                Console.WriteLine($"Wylosowałam liczbę od {min} do {max}. Zgadnij jaka to liczba");
+                do
+                {
+                    liczba = int.Parse(Console.ReadLine());
+
+
+
+                    if (liczba < a)
+                    {
+                        Console.WriteLine("Za mało. Sprobuj jeszcze raz");
+                    }
+                    if (liczba > a)
+                    {
+                        Console.WriteLine("Za dużo. Sprobuj jeszcze raz");
+                    }
+                } while (liczba != a);
+
+                Console.WriteLine("Brawo! zgadłeś liczbę");
+
+                Console.Read();
+
+            }
 
         }
 
     }
-
 }
 
 
